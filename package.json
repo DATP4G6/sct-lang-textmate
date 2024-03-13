@@ -1,0 +1,25 @@
+{
+  "name": "sct-lang-textmate",
+  "displayName": "Sct Lang TextMate",
+  "description": "Basic language support for the Sct language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "sct",
+      "aliases": ["Societal Construction Tool", "sct"],
+      "extensions": [".sct"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "sct",
+      "scopeName": "source.sct",
+      "path": "./syntaxes/sct.tmLanguage.json"
+    }]
+  }
+}
