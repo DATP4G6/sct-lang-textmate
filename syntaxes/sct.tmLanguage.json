@@ -32,42 +32,59 @@
       "patterns": [
         {
           "name": "keyword.control.sct",
-          "match": "\\b(if|else|while|return|enter|create|destroy)\\b"
+          "match": "\\b(if|else|else\\bif|while|return|enter|create|destroy|exit|continue|break)\\b"
         },
         {
-          "name": "entity.name.type",
-          "match": "\\b(int|float|void)\\b"
+          "name": "keyword",
+          "match": "\\b(int|float|void|Predicate)\\b"
         },
         {
           "name": "keyword.other.sct",
-          "match": "\\b(species|function|decorator|state)\\b",
-          "patterns": [
-            {
-              "name": "variable",
-              "match": "(Town)"
-            }
-          ]
-        },
-        {
-          "name": "entity.name.class",
-          "match": "(Town)"
+          "match": "\\b(species|function|decorator|state)\\b"
         }
       ]
     },
     "identifiers": {
       "patterns": [
         {
-          "name": "entity.name",
-          "match": "(@\\w[\\w\\d_]*)"
+          "name": "entity.name.class",
+          "match": "(?<=species\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "entity.name.class",
+          "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=::)"
+        },
+        {
+          "name": "support.function",
+          "match": "(?<=state\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "support.function",
+          "match": "(?<=enter\\s+)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "support.function",
+          "match": "(?<=::)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "support.function",
+          "match": "(?<=\\=\\>\\s+)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "support.function",
+          "match": "(?<=decorator\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
+        },
+        {
+          "name": "support.function",
+          "match": "(@[a-zA-Z_][a-zA-Z0-9_]*)\\b"
         },
         {
           "name": "entity.name.function",
-          "begin": "state ",
-          "end": "\\{"
+          "match": "(?<=function\\s)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b"
         },
         {
           "name": "entity.name.function",
-          "match": "([a-zA-Z_][a-zA-Z0-9_]+)\\("
+          "match": "(?<!::)\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b\\("
         },
         {
           "name": "variable",
